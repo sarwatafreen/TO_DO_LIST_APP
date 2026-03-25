@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FAQ Accordion Widget</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+      min-height: 100vh;
+      padding: 40px 20px;
+      color: #333;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+    }
+
+    .header {
+      background: #4a6cf7;
+      color: white;
+      padding: 30px 40px;
+      text-align: center;
+    }
+
+    .header h1 {
+      font-size: 2.2rem;
+      margin-bottom: 8px;
+    }
+
+    .header p {
+      opacity: 0.9;
+      font-size: 1.1rem;
+    }
+
+    .faq-container {
+      padding: 20px 0;
+    }
+
+    .faq-item {
+      border-bottom: 1px solid #eee;
+    }
+
+    .faq-question {
+      width: 100%;
+      padding: 22px 40px;
+      background: none;
+      border: none;
+      text-align: left;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #333;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: all 0.3s ease;
+    }
+
+    .faq-question:hover {
+      background: #f8f9ff;
+    }
+
+    .faq-question .icon {
+      font-size: 1.5rem;
+      transition: transform 0.4s ease;
+    }
+
+    .faq-item.active .faq-question .icon {
+      transform: rotate(180deg);
+    }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      padding: 0 40px;
+      background: #fafcff;
+      transition: max-height 0.4s ease, padding 0.4s ease;
+    }
+
+    .faq-item.active .faq-answer {
+      max-height: 300px;
+      padding: 0 40px 25px 40px;
+    }
+
+    .faq-answer p {
+      line-height: 1.7;
+      color: #555;
+    }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+      .header h1 {
+        font-size: 1.8rem;
+      }
+      .faq-question, .faq-answer {
+        padding-left: 25px;
+        padding-right: 25px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <!-- Header -->
+    <div class="header">
+      <h1>Frequently Asked Questions</h1>
+      <p>Find answers to common questions</p>
+    </div>
+
+    <!-- FAQ Items -->
+    <div class="faq-container">
+
+      <div class="faq-item">
+        <button class="faq-question">
+          What is this FAQ Accordion Widget?
+          <span class="icon">▼</span>
+        </button>
+        <div class="faq-answer">
+          <p>This is a clean and interactive FAQ section built with HTML, CSS, and JavaScript. It allows users to expand and collapse answers smoothly.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question">
+          How does the accordion work?
+          <span class="icon">▼</span>
+        </button>
+        <div class="faq-answer">
+          <p>When you click on a question, JavaScript toggles the "active" class which triggers CSS transitions to smoothly show or hide the answer.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question">
+          Is it mobile friendly?
+          <span class="icon">▼</span>
+        </button>
+        <div class="faq-answer">
+          <p>Yes! The design is fully responsive and works perfectly on mobile phones, tablets, and desktops.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question">
+          Can I add more questions?
+          <span class="icon">▼</span>
+        </button>
+        <div class="faq-answer">
+          <p>Absolutely. Just copy the <code>&lt;div class="faq-item"&gt;</code> block and add your own question and answer.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question">
+          Do I need any external libraries?
+          <span class="icon">▼</span>
+        </button>
+        <div class="faq-answer">
+          <p>No. This accordion is built with pure vanilla JavaScript and CSS. No jQuery or Bootstrap required.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+    // Get all FAQ items
+    const faqItems = document.querySelectorAll('.faq-item');
+
+    faqItems.forEach(item => {
+      const question = item.querySelector('.faq-question');
+      
+      question.addEventListener('click', () => {
+        // Close all other items
+        faqItems.forEach(otherItem => {
+          if (otherItem !== item) {
+            otherItem.classList.remove('active');
+          }
+        });
+
+        // Toggle current item
+        item.classList.toggle('active');
+      });
+    });
+
+    // Optional: Open first FAQ by default
+    // faqItems[0].classList.add('active');
+  </script>
+
+</body>
+</html>

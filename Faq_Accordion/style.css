@@ -1,0 +1,132 @@
+/* body {
+  font-family: Arial;
+  padding: 20px;
+}
+
+.question {
+  background: #007bff;
+  color: white;
+  padding: 10px;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+.answer {
+  display: none;
+  padding: 10px;
+  background: #eee;
+} */    
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background: linear-gradient(135deg, #f0f4f8, #d9e2ec);
+  min-height: 100vh;
+  padding: 40px 15px;
+  color: #333;
+}
+
+.container {
+  max-width: 720px;
+  margin: 0 auto;
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+}
+
+.header {
+  background: linear-gradient(135deg, #007bff, #0056b3);
+  color: white;
+  padding: 30px 20px;
+  text-align: center;
+}
+
+.header h1 {
+  font-size: 28px;
+  margin-bottom: 8px;
+}
+
+.header p {
+  font-size: 16px;
+  opacity: 0.95;
+}
+
+/* FAQ Items */
+.faq-container {
+  padding: 10px 0;
+}
+
+.faq-item {
+  border-bottom: 1px solid #e9ecef;
+}
+
+.faq-question {
+  width: 100%;
+  padding: 20px 25px;
+  background: none;
+  border: none;
+  text-align: left;
+  font-size: 17px;
+  font-weight: 600;
+  color: #222;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: all 0.3s ease;
+}
+
+.faq-question:hover {
+  background: #f8fbff;
+}
+
+.faq-question .icon {
+  font-size: 24px;
+  transition: transform 0.4s ease;
+  line-height: 1;
+}
+
+.faq-item.active .faq-question .icon {
+  transform: rotate(180deg);
+}
+
+/* Answer Style with Smooth Animation */
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  padding: 0 25px;
+  background: #f9fbff;
+  transition: max-height 0.45s ease, padding 0.45s ease;
+}
+
+.faq-item.active .faq-answer {
+  max-height: 300px;     /* Agar jawab lamba ho to bhi achha khulega */
+  padding-bottom: 25px;
+}
+
+.faq-answer p {
+  line-height: 1.7;
+  color: #444;
+  font-size: 15.5px;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+  .header h1 {
+    font-size: 24px;
+  }
+  
+  .faq-question {
+    padding: 18px 20px;
+    font-size: 16px;
+  }
+  
+  .faq-answer p {
+    font-size: 15px;
+  }
+}
